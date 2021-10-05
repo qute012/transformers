@@ -479,11 +479,9 @@ class EncoderDecoderModel(PreTrainedModel):
             "encoder_outputs": encoder_outputs,
             "past_key_values": decoder_inputs["past_key_values"],
             "use_cache": use_cache,
+            "decoder_src_input_ids": decoder_inputs["decoder_src_input_ids"]
         }
         
-        for key, value in decoder_inputs.items():
-            if not key in DEFAULT_KEYS:
-                input_dict.update({key: value})
         return input_dict
 
     def resize_token_embeddings(self, *args, **kwargs):
