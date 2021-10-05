@@ -484,7 +484,6 @@ class EncoderDecoderModel(PreTrainedModel):
         for key, value in decoder_inputs.items():
             if not key in DEFAULT_KEYS:
                 input_dict.update({key: value})
-        print(input_dict.keys())
         return input_dict
 
     def resize_token_embeddings(self, *args, **kwargs):
