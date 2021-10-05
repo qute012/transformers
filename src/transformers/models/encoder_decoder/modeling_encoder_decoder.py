@@ -471,6 +471,7 @@ class EncoderDecoderModel(PreTrainedModel):
         DEFAULT_KEYS = ["attention_mask", "decoder_attention_mask", "decoder_input_ids", "encoder_outputs", "past_key_values", "use_cache"]
         
         decoder_inputs = self.decoder.prepare_inputs_for_generation(input_ids, past=past, **kwargs)
+        print(decoder_inputs)
         decoder_attention_mask = decoder_inputs["attention_mask"] if "attention_mask" in decoder_inputs else None
         input_dict = {
             "attention_mask": attention_mask,
@@ -481,7 +482,6 @@ class EncoderDecoderModel(PreTrainedModel):
             "use_cache": use_cache,
         }
         
-        print(decoder_inputs)
         for key, value in decoder_inputs.items():
             if not key in DEFAULT_KEYS:
                 input_dict.update({key: value})
