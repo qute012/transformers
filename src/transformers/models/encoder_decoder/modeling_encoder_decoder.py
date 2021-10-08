@@ -479,6 +479,7 @@ class EncoderDecoderModel(PreTrainedModel):
             "encoder_outputs": encoder_outputs,
             "past_key_values": decoder_inputs["past_key_values"],
             "use_cache": use_cache,
+            "decoder_src_input_ids": decoder_inputs["decoder_src_input_ids"]
         }
         #            "decoder_src_input_ids": decoder_inputs["decoder_src_input_ids"]
         return input_dict
